@@ -1,17 +1,13 @@
-package "make"
-package "flex"
-package "bison"
 package "libtool"
 package "libevent-dev"
-package "automake"
 package "pkg-config"
 package "libssl-dev"
 package "libboost-all-dev"
 package "libbz2-dev"
-package "build-essential"
-package "g++"
 package "python-dev"
 package "git"
+
+include_recipe 'build-essential'
 
 gem "bundler"
 
@@ -47,6 +43,7 @@ bash "install fb303" do
     ./configure CPPFLAGS="-DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H" --without-ruby
     make
     make install
+    ldconfig
     EOH
     not_if { ::File.exists?('/usr/local/lib/libfb303.a') }
 end
@@ -92,7 +89,7 @@ end
 # upstart
 cookbook_file "/etc/init/scribed.conf" do
     action :create
-    mode 644
+    mode "644"
 end
 
 service "scribed" do

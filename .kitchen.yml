@@ -1,0 +1,13 @@
+---
+driver_plugin: vagrant
+
+platforms:
+- name: ubuntu-12.04
+  driver_config:
+    box: precise64
+    box_url: http://files.vagrantup.com/precise64.box
+
+suites:
+- name: scribe-endpoint
+  run_list: ["recipe[scribe::endpoint]", "recipe[minitest-handler]"]
+  attributes: {}
