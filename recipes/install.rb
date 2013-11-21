@@ -1,3 +1,6 @@
+include_recipe 'build-essential'
+include_recipe 'apt'
+
 package "libtool"
 package "libevent-dev"
 package "pkg-config"
@@ -6,8 +9,6 @@ package "libboost-all-dev"
 package "libbz2-dev"
 package "python-dev"
 package "git"
-
-include_recipe 'build-essential'
 
 gem "bundler"
 
@@ -97,4 +98,3 @@ service "scribed" do
     supports :status => true, :reload => true, :restart => true
     action :enable
 end
-

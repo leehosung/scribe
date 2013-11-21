@@ -7,8 +7,5 @@ describe_recipe 'scribe::install' do
         it "run as a daemon" do
             service("scribed").must_be_running
         end
-        it "boots on startup" do
-            service("scribed").must_be_enabled
-        end 
     end
 end
