@@ -13,3 +13,6 @@ suites:
 - name: scribe-endpoint
   run_list: ["recipe[scribe::endpoint]", "recipe[minitest-handler]"]
   attributes: {}
+- name: scribe-relay
+  run_list: ["recipe[scribe::relay]", "recipe[minitest-handler]"]
+  attributes: {"scribe":{"remote_host":"127.1.2.3"}}

@@ -1,3 +1,5 @@
+require './specs/spec_helper'
+
 describe 'scribe::relay' do
     let(:chef_run)  { ChefSpec::Runner.new }
 

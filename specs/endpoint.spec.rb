@@ -1,5 +1,4 @@
-require 'chefspec'
-require 'chefspec/berkshelf'
+require './specs/spec_helper'
 
 describe 'scribe::endpoint' do
     let(:chef_run)  { ChefSpec::Runner.new }
